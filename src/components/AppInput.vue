@@ -1,15 +1,63 @@
 <template>
-  <div>
-    <h2>Input</h2>
+  <div class="inputBox shadow">
+    <input type="text" v-model="newTodoItem" v-on:keypress.enter="addTodo">
+<!--    <button class=""  v-on:click="addTodo">Add</button>-->
+    <span class="addContainer" v-on:click="addTodo" >
+      <i class="addBtn fas fa-plus" aria-hidden="true"></i>
+    </span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'AppInput',
+  data: function() {
+    return {
+      newTodoItem: "",
+    }
+  },
+  methods: {
+    addTodo: function() {
+      console.log(this.newTodoItem);
+      localStorage.setItem(this.newTodoItem, this.newTodoItem)
+      this.clearInput();
+    },
+    clearInput: function() {
+      this.newTodoItem = '';
+    }
+  }
 };
 </script>
 
 <style scoped>
+
+  input:focus {
+    outline: none;
+  }
+
+  .inputBox {
+    background-color: #fff;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+  }
+
+  .inputBox input {
+    border-style: none;
+    font-size: 0.9rem;
+  }
+
+  .addContainer {
+    float: right;
+    background: linear-gradient(to right, #6478FB, #8763FB);
+    display: block;
+    width: 3rem;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .addBtn {
+    color: #fff;
+    vertical-align: middle;
+  }
 
 </style>

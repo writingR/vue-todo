@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h2>List</h2>
+    <ul>
+      <li>list1</li>
+      <li>list2</li>
+      <li>list3</li>
+    </ul>
   </div>
 </template>
 

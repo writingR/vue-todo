@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Header</h1>
+    <h1>🔖 TodoList</h1>
   </div>
 </template>
 
@@ -12,7 +12,8 @@ export default {
 
 <style scoped>
   h1 {
-    color: dodgerblue;
+    font-size: 40px;
+    color: #000;
     font-weight: 900;
     margin: 2.5rem 0 1.5rem;
   }

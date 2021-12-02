@@ -29,6 +29,7 @@ export default {
   body {
     text-align: center;
     background-color: aliceblue;
+    padding: 0 80px 0 50px;
   }
 
   input {
@@ -43,4 +44,5 @@ export default {
   .shadow {
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
   }
+
 </style>
