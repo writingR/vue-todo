@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Header</h2>
+    <h1>Header</h1>
   </div>
 </template>
 
@@ -11,5 +11,9 @@ export default {
 </script>
 
 <style scoped>
-
+  h1 {
+    color: dodgerblue;
+    font-weight: 900;
+    margin: 2.5rem 0 1.5rem;
+  }
 </style>
