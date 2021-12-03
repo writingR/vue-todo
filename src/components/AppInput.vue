@@ -5,27 +5,51 @@
     <span class="addContainer" v-on:click="addTodo" >
       <i class="addBtn fas fa-plus" aria-hidden="true"></i>
     </span>
+
+    <Modal v-if="showModal" @close="showModal = false">
+      <!--
+        you can use custom content here to overwrite
+        default content
+      -->
+      <h3 slot="header">
+        경고!
+        <i
+           class="closeModalBtn fas fa-times"
+           @click="showModal = false"
+        >
+        </i>
+      </h3>
+      <p slot="body">아무것도 입력하지 않으셨습니다.입력해주세요.</p>
+    </Modal>
   </div>
 </template>
 
 <script>
+import Modal from './common/Modal';
+
 export default {
   name: 'AppInput',
   data: function() {
     return {
       newTodoItem: "",
+      showModal: false,
     }
   },
   methods: {
     addTodo: function() {
-      if(this.newTodoItem !== "null" || this.newTodoItem !== "") {
+      if(this.newTodoItem !== "") {
         this.$emit('addTodoItem', this.newTodoItem);
         this.clearInput();
+      } else {
+        this.showModal = !this.showModal;
       }
     },
     clearInput: function() {
       this.newTodoItem = '';
-    }
+    },
+  },
+  components: {
+    Modal,
   }
 };
 </script>
@@ -59,6 +83,10 @@ export default {
   .addBtn {
     color: #fff;
     vertical-align: middle;
+  }
+
+  .closeModalBtn {
+    color: #42b983;
   }
 
 </style>
