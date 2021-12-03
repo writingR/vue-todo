@@ -21,7 +21,7 @@ const storage = {
 
 export const store = new Vuex.Store ({
   state: {
-    headerTitle: 'TodoList - 나의 할 일',
+    // headerTitle: 'TodoList - 나의 할 일',
     todoItems: storage.fetch(),
   },
   mutations: {
