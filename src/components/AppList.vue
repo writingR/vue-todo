@@ -17,10 +17,10 @@ export default {
   name: 'AppList',
   props: ['propsdata'],
   methods: {
-    removeTodo: function(todoItem, index) {
+    removeTodo(todoItem, index) {
       this.$emit('removeTodoItem',todoItem,index);
     },
-    toggleCheckTodo: function(todoItem, index) {
+    toggleCheckTodo(todoItem, index) {
       this.$emit('toggleTodoItem',todoItem, index);
     }
   }

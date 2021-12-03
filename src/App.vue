@@ -26,39 +26,39 @@ import AppFooter from './components/AppFooter';
 
 export default {
   name: 'App',
-  data: function() {
+  data() {
     return {
       todoItems: []
     }
   },
   methods: {
-    addOneItem: function(todoItem) {
-      var obj = {
+    addOneItem(todoItem) {
+      const obj = {
         completed: false,
         item: todoItem
       }
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
     },
-    removeOneItem: function(todoItem,index) {
+    removeOneItem(todoItem,index) {
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index,1);
       // todoItem.splice(index,1);
     },
-    toggleItem: function(todoItem, index) {
+    toggleItem(todoItem, index) {
       this.todoItems[index].completed = !this.todoItems[index].completed;
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
-    clearAllItem: function() {
+    clearAllItem() {
       localStorage.clear();
       this.todoItems = [];
     }
   },
   // 인스턴스가 생성되자마자 호출되는 함수
-  created: function(){
+  created(){
     if(localStorage.length > 0) {
-      for(var i = 0; i<localStorage.length; i++) {
+      for(let i = 0; i<localStorage.length; i++) {
         if(localStorage.key(i) != "loglevel:webpack-dev-server") {
           // this.todoItems.push(localStorage.key(i));
           this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
