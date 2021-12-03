@@ -6,7 +6,7 @@
     >
     </AppInput>
     <AppList
-        v-bind:propsdata="todoItems"
+        v-bind:propsdata="this.todoItems"
         v-on:removeTodoItem="removeOneItem"
         v-on:toggleTodoItem="toggleItem"
     >
@@ -28,7 +28,7 @@ export default {
   name: 'App',
   data() {
     return {
-      todoItems: []
+      todoItems: this.$store.state.todoItems
     }
   },
   methods: {
@@ -53,17 +53,6 @@ export default {
     clearAllItem() {
       localStorage.clear();
       this.todoItems = [];
-    }
-  },
-  // 인스턴스가 생성되자마자 호출되는 함수
-  created(){
-    if(localStorage.length > 0) {
-      for(let i = 0; i<localStorage.length; i++) {
-        if(localStorage.key(i) != "loglevel:webpack-dev-server") {
-          // this.todoItems.push(localStorage.key(i));
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-        }
-      }
     }
   },
   components: {
