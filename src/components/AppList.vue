@@ -18,11 +18,11 @@ export default {
   methods: {
     removeTodo(todoItem, index) {
       // this.$emit('removeTodoItem',todoItem,index);
-      this.$store.commit('removeOneItem',todoItem,index);
+      this.$store.commit('removeOneItem',{todoItem, index});
     },
     toggleCheckTodo(todoItem, index) {
-      // this.$emit('toggleTodoItem',todoItem, index);
-      this.$store.commit('toggleItem',todoItem, index);
+      // this.$emit('toggleTodoItem',todoItem, index);s
+      this.$store.commit('toggleItem', {todoItem, index});
     }
   }
 };

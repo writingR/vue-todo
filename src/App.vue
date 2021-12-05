@@ -1,20 +1,23 @@
 <template>
   <div id="app">
+<!--    <AppInput-->
+<!--        v-on:addTodoItem="addOneItem"-->
+<!--    >-->
+<!--    </AppInput>-->
+<!--    <AppList-->
+<!--        v-bind:propsdata="this.todoItems"-->
+<!--        v-on:removeTodoItem="removeOneItem"-->
+<!--        v-on:toggleTodoItem="toggleItem"-->
+<!--    >-->
+<!--    </AppList>-->
+<!--    <AppFooter-->
+<!--        v-on:clearItem="clearAllItem"-->
+<!--    >-->
+<!--    </AppFooter>-->
     <AppHeader></AppHeader>
-    <AppInput
-        v-on:addTodoItem="addOneItem"
-    >
-    </AppInput>
-    <AppList
-        v-bind:propsdata="this.todoItems"
-        v-on:removeTodoItem="removeOneItem"
-        v-on:toggleTodoItem="toggleItem"
-    >
-    </AppList>
-    <AppFooter
-        v-on:clearItem="clearAllItem"
-    >
-    </AppFooter>
+    <AppInput></AppInput>
+    <AppList></AppList>
+    <AppFooter></AppFooter>
   </div>
 </template>
 
