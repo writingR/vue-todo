@@ -15,13 +15,14 @@
 <script>
 export default {
   name: 'AppList',
-  props: ['propsdata'],
   methods: {
     removeTodo(todoItem, index) {
-      this.$emit('removeTodoItem',todoItem,index);
+      // this.$emit('removeTodoItem',todoItem,index);
+      this.$store.commit('removeOneItem',todoItem,index);
     },
     toggleCheckTodo(todoItem, index) {
-      this.$emit('toggleTodoItem',todoItem, index);
+      // this.$emit('toggleTodoItem',todoItem, index);
+      this.$store.commit('toggleItem',todoItem, index);
     }
   }
 };
