@@ -26,13 +26,18 @@ import AppHeader from './components/AppHeader';
 import AppInput from './components/AppInput';
 import AppList from './components/AppList';
 import AppFooter from './components/AppFooter';
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      todoItems: this.$store.state.todoItems
-    }
+  // data() {
+  //   return {
+  //     // todoItems: this.$store.state.todoItems
+  //     ...mapState(['todoItems'])
+  //   }
+  // },
+  computed: {
+    ...mapState(['todoItems'])
   },
   methods: {
     // addOneItem(todoItem) {

@@ -24,6 +24,11 @@ export const store = new Vuex.Store ({
     // headerTitle: 'TodoList - 나의 할 일',
     todoItems: storage.fetch(),
   },
+  getters: {
+    getTodoItems(state) {
+      return state.todoItems;
+    }
+  },
   mutations: {
     addOneItem(state,todoItem) {
       const obj = { completed: false, item: todoItem };
@@ -35,8 +40,8 @@ export const store = new Vuex.Store ({
       state.todoItems.splice(payload.index,1);
       // todoItem.splice(index,1);
     },
-    toggleItem(state,payload) {
-      state.todoItem[payload.index].completed = !state.todoItem[payload.index].completed;
+    toggleOneItem(state,payload) {
+      state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed;
       localStorage.removeItem(payload.todoItem.item);
       localStorage.setItem(payload.todoItem.item, JSON.stringify(payload.todoItem.item));
     },
@@ -44,5 +49,8 @@ export const store = new Vuex.Store ({
       localStorage.clear();
       state.todoItems = [];
     }
+  },
+  actions: {
+
   }
 });
